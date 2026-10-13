@@ -1,0 +1,59 @@
+<view class="container">
+  <picker
+    mode="selector"
+    range="{{dateOptions}}"
+    range-key="display"
+    value="{{dateIndex}}"
+    bindchange="onDateChange"
+  >
+    <view class="date-banner">
+      <text>{{dateText}}</text>
+      <text class="date-arrow">▾</text>
+    </view>
+  </picker>
+
+  <view class="card">
+    <view class="form-item">
+      <text class="form-label">今日心情</text>
+      <picker
+        mode="selector"
+        range="{{moods}}"
+        value="{{moodIndex}}"
+        bindchange="onMoodChange"
+      >
+        <view class="form-picker">
+          {{moodIndex >= 0 ? moods[moodIndex] : '选择心情（选填）'}}
+          <text class="picker-arrow">▾</text>
+        </view>
+      </picker>
+    </view>
+
+    <view class="form-item">
+      <text class="form-label">日记内容 <text class="required">*</text></text>
+      <textarea
+        class="diary-textarea"
+        placeholder="记录今天发生的事、想法和感受..."
+        value="{{content}}"
+        bindinput="onContentInput"
+        maxlength="2000"
+        auto-height
+      />
+    </view>
+  </view>
+
+  <button
+    class="btn-primary submit-btn"
+    bindtap="onSave"
+    disabled="{{saving}}"
+  >
+    {{saving ? '保存中...' : '保存日记'}}
+  </button>
+
+  <button
+    wx:if="{{isEdit}}"
+    class="btn-danger delete-btn"
+    bindtap="onDelete"
+  >
+    删除这篇日记
+  </button>
+</view>

@@ -1,0 +1,88 @@
+.login-card {
+  text-align: center;
+  padding: 120rpx 40rpx;
+  background: #ffffff;
+  border-radius: 24rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
+}
+
+.login-icon {
+  font-size: 120rpx;
+  margin-bottom: 24rpx;
+}
+
+.login-title {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 12rpx;
+}
+
+.login-subtitle {
+  font-size: 26rpx;
+  color: #999999;
+  margin-bottom: 48rpx;
+}
+
+.login-btn {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.form-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 32rpx;
+}
+
+.form-item {
+  margin-bottom: 32rpx;
+}
+
+.form-label {
+  display: block;
+  font-size: 26rpx;
+  color: #666666;
+  margin-bottom: 12rpx;
+}
+
+.required {
+  color: #ff6b6b;
+}
+
+.form-input {
+  background: #f7f7f9;
+  border-radius: 12rpx;
+  padding: 20rpx 24rpx;
+  font-size: 28rpx;
+}
+
+.form-textarea {
+  background: #f7f7f9;
+  border-radius: 12rpx;
+  padding: 20rpx 24rpx;
+  font-size: 28rpx;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 160rpx;
+}
+
+.form-picker {
+  background: #f7f7f9;
+  border-radius: 12rpx;
+  padding: 20rpx 24rpx;
+  font-size: 28rpx;
+  color: #333333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.picker-arrow {
+  color: #bbbbbb;
+}
+
+.submit-btn {
+  margin-top: 20rpx;
+}

@@ -1,0 +1,73 @@
+<view class="container">
+  <!-- 未登录 -->
+  <view wx:if="{{!loggedIn}}" class="login-card">
+    <view class="login-icon">🎁</view>
+    <view class="login-title">登录后发布心愿</view>
+    <view class="login-subtitle">记录你的购买需求，让心愿被看见</view>
+    <button class="btn-primary login-btn" bindtap="onLogin">微信一键登录</button>
+  </view>
+
+  <!-- 已登录 - 发布表单 -->
+  <view wx:else>
+    <view class="card">
+      <view class="form-title">发布心愿</view>
+
+      <view class="form-item">
+        <text class="form-label">心愿标题 <text class="required">*</text></text>
+        <input
+          class="form-input"
+          placeholder="例如：想要一台 iPad"
+          value="{{title}}"
+          bindinput="onTitleInput"
+          maxlength="60"
+        />
+      </view>
+
+      <view class="form-item">
+        <text class="form-label">详细描述</text>
+        <textarea
+          class="form-textarea"
+          placeholder="说说你想要什么、有什么要求（选填）"
+          value="{{description}}"
+          bindinput="onDescInput"
+          maxlength="500"
+          auto-height
+        />
+      </view>
+
+      <view class="form-item">
+        <text class="form-label">分类</text>
+        <picker
+          mode="selector"
+          range="{{categories}}"
+          value="{{categoryIndex}}"
+          bindchange="onCategoryChange"
+        >
+          <view class="form-picker">
+            {{categoryIndex >= 0 ? categories[categoryIndex] : '请选择分类'}}
+            <text class="picker-arrow">▾</text>
+          </view>
+        </picker>
+      </view>
+
+      <view class="form-item">
+        <text class="form-label">预算（元）</text>
+        <input
+          class="form-input"
+          type="number"
+          placeholder="例如：3000（选填）"
+          value="{{budget}}"
+          bindinput="onBudgetInput"
+        />
+      </view>
+    </view>
+
+    <button
+      class="btn-primary submit-btn"
+      bindtap="onSubmit"
+      disabled="{{submitting}}"
+    >
+      {{submitting ? '发布中...' : '发布心愿'}}
+    </button>
+  </view>
+</view>

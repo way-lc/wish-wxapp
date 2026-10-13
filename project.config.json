@@ -1,0 +1,11 @@
+{
+  "miniprogramRoot": "./",
+  "compileType": "miniprogram",
+  "appid": "touristappid",
+  "projectname": "wish-list",
+  "setting": {
+    "es6": true,
+    "postcss": true,
+    "minified": true
+  }
+}

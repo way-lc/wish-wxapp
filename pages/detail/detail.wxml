@@ -1,0 +1,42 @@
+<view class="container">
+  <view wx:if="{{loading}}" class="empty">
+    <text class="icon">⏳</text>
+    <text>加载中...</text>
+  </view>
+
+  <view wx:elif="{{wish}}" class="card detail-card">
+    <view class="detail-header">
+      <text class="detail-title">{{wish.title}}</text>
+      <text class="wish-status {{wish.status === 'open' ? 'open' : 'done'}}">
+        {{wish.status === 'open' ? '待实现' : '已实现'}}
+      </text>
+    </view>
+
+    <view wx:if="{{wish.category}}" class="detail-tags">
+      <text class="wish-tag">{{wish.category}}</text>
+      <text wx:if="{{wish.budget}}" class="wish-budget">预算 ¥{{wish.budget}}</text>
+    </view>
+
+    <view wx:if="{{wish.description}}" class="detail-desc">
+      <text class="desc-label">描述</text>
+      <text class="desc-text">{{wish.description}}</text>
+    </view>
+
+    <view class="detail-meta">
+      <text class="meta-item">发布者：{{wish.owner_name || '匿名'}}</text>
+      <text class="meta-item">发布于 {{wish.created_at}}</text>
+    </view>
+
+    <!-- 发布者操作 -->
+    <view wx:if="{{isOwner && !loadingOwner}}" class="owner-actions">
+      <button
+        wx:if="{{wish.status === 'open'}}"
+        class="btn-primary action-btn"
+        bindtap="onMarkDone"
+      >
+        标记为已实现
+      </button>
+      <button class="btn-danger action-btn" bindtap="onDelete">删除心愿</button>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,110 @@
+.detail-card {
+  padding: 36rpx;
+}
+
+.detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20rpx;
+}
+
+.detail-title {
+  font-size: 40rpx;
+  font-weight: 700;
+  color: #333333;
+  flex: 1;
+  margin-right: 20rpx;
+}
+
+.wish-status {
+  font-size: 24rpx;
+  padding: 6rpx 20rpx;
+  border-radius: 20rpx;
+  flex-shrink: 0;
+}
+
+.wish-status.open {
+  background: #fff0e6;
+  color: #ff8c42;
+}
+
+.wish-status.done {
+  background: #e8f5e9;
+  color: #4caf50;
+}
+
+.detail-tags {
+  display: flex;
+  align-items: center;
+  margin-bottom: 28rpx;
+}
+
+.wish-tag {
+  font-size: 24rpx;
+  color: #ff6b6b;
+  background: #ffecec;
+  padding: 6rpx 20rpx;
+  border-radius: 16rpx;
+  margin-right: 16rpx;
+}
+
+.wish-budget {
+  font-size: 28rpx;
+  color: #ff6b6b;
+  font-weight: 600;
+}
+
+.detail-desc {
+  margin-bottom: 28rpx;
+}
+
+.desc-label {
+  display: block;
+  font-size: 26rpx;
+  color: #999999;
+  margin-bottom: 12rpx;
+}
+
+.desc-text {
+  font-size: 28rpx;
+  color: #444444;
+  line-height: 1.7;
+  white-space: pre-wrap;
+}
+
+.detail-meta {
+  padding-top: 24rpx;
+  border-top: 1rpx solid #f0f0f0;
+  margin-bottom: 8rpx;
+}
+
+.meta-item {
+  display: block;
+  font-size: 24rpx;
+  color: #bbbbbb;
+  margin-bottom: 8rpx;
+}
+
+.owner-actions {
+  margin-top: 32rpx;
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.action-btn {
+  margin: 0;
+}
+
+.btn-danger {
+  background: #ffffff;
+  color: #ff6b6b;
+  border: 1rpx solid #ff6b6b;
+  border-radius: 44rpx;
+  font-size: 30rpx;
+}
+
+.btn-danger::after {
+  border: none;
+}

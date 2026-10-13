@@ -1,0 +1,63 @@
+<view class="container">
+  <!-- 搜索栏 -->
+  <view class="search-bar">
+    <input
+      class="search-input"
+      placeholder="搜索心愿关键词"
+      value="{{keyword}}"
+      bindinput="onSearchInput"
+      bindconfirm="onSearch"
+      confirm-type="search"
+    />
+    <text class="search-btn" bindtap="onSearch">搜索</text>
+  </view>
+
+  <!-- 分类 -->
+  <scroll-view class="category-scroll" scroll-x="true">
+    <view class="category-list">
+      <view
+        wx:for="{{categories}}"
+        wx:key="*this"
+        class="category-item {{activeCategory === item ? 'active' : ''}}"
+        data-category="{{item}}"
+        bindtap="onCategoryTap"
+      >
+        {{item}}
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- 心愿列表 -->
+  <view wx:if="{{loading}}" class="empty">
+    <text class="icon">⏳</text>
+    <text>加载中...</text>
+  </view>
+
+  <view wx:elif="{{wishes.length === 0}}" class="empty">
+    <text class="icon">🎁</text>
+    <text>还没有心愿，快来发布第一个吧</text>
+  </view>
+
+  <view wx:else>
+    <view
+      wx:for="{{wishes}}"
+      wx:key="id"
+      class="card wish-card"
+      data-id="{{item.id}}"
+      bindtap="onWishTap"
+    >
+      <view class="wish-header">
+        <text class="wish-title">{{item.title}}</text>
+        <text class="wish-status {{item.status === 'open' ? 'open' : 'done'}}">
+          {{item.status === 'open' ? '待实现' : '已实现'}}
+        </text>
+      </view>
+      <text wx:if="{{item.description}}" class="wish-desc">{{item.description}}</text>
+      <view class="wish-footer">
+        <text wx:if="{{item.category}}" class="wish-tag">{{item.category}}</text>
+        <text wx:if="{{item.budget}}" class="wish-budget">预算 ¥{{item.budget}}</text>
+        <text class="wish-owner">{{item.owner_name || '匿名'}}</text>
+      </view>
+    </view>
+  </view>
+</view>

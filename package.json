@@ -1,0 +1,8 @@
+{
+  "name": "wish-list-miniprogram",
+  "version": "1.0.0",
+  "description": "心愿清单小程序 - 收集购买需求与愿望",
+  "dependencies": {
+    "@tencent-ai/workbuddy-cloud-sdk": "dev"
+  }
+}

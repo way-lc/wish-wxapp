@@ -1,0 +1,35 @@
+<view class="container">
+  <!-- 写日记入口 -->
+  <view class="write-entry" bindtap="onWrite">
+    <text class="write-icon">✏️</text>
+    <text class="write-text">写一篇日记</text>
+  </view>
+
+  <!-- 日记列表 -->
+  <view wx:if="{{loading}}" class="empty">
+    <text class="icon">⏳</text>
+    <text>加载中...</text>
+  </view>
+
+  <view wx:elif="{{diaries.length === 0}}" class="empty">
+    <text class="icon">📔</text>
+    <text>还没有日记，记录今天的心情吧</text>
+  </view>
+
+  <view wx:else class="diary-list">
+    <view
+      wx:for="{{diaries}}"
+      wx:key="id"
+      class="card diary-card"
+      data-id="{{item.id}}"
+      bindtap="onDiaryTap"
+    >
+      <view class="diary-head">
+        <text class="diary-date">{{item.dateText}}</text>
+        <text class="diary-time">{{item.timeText}}</text>
+      </view>
+      <text wx:if="{{item.mood}}" class="diary-mood">{{item.mood}}</text>
+      <text class="diary-content">{{item.content}}</text>
+    </view>
+  </view>
+</view>

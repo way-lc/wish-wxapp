@@ -1,0 +1,17 @@
+# macOS
+.DS_Store
+
+# Node
+node_modules/
+npm-debug.log*
+
+# 本地记忆日志（不需要进 git）
+.workbuddy/memory/
+
+# 云服务本地状态（applications.yaml 需要保留，见下方例外）
+# .workbuddy/ 下除 applications.yaml 外默认忽略
+.workbuddy/*
+!.workbuddy/applications.yaml
+
+# 临时文件
+*.log

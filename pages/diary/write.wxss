@@ -1,0 +1,78 @@
+.date-banner {
+  text-align: center;
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #333333;
+  padding: 20rpx 0 32rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.date-arrow {
+  margin-left: 10rpx;
+  color: #bbbbbb;
+  font-size: 24rpx;
+}
+
+.form-item {
+  margin-bottom: 32rpx;
+}
+
+.form-item:last-child {
+  margin-bottom: 0;
+}
+
+.form-label {
+  display: block;
+  font-size: 26rpx;
+  color: #666666;
+  margin-bottom: 12rpx;
+}
+
+.required {
+  color: #ff6b6b;
+}
+
+.form-picker {
+  background: #f7f7f9;
+  border-radius: 12rpx;
+  padding: 20rpx 24rpx;
+  font-size: 28rpx;
+  color: #333333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.picker-arrow {
+  color: #bbbbbb;
+}
+
+.diary-textarea {
+  background: #f7f7f9;
+  border-radius: 12rpx;
+  padding: 24rpx;
+  font-size: 28rpx;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 360rpx;
+  line-height: 1.8;
+}
+
+.submit-btn {
+  margin-top: 24rpx;
+}
+
+.delete-btn {
+  margin-top: 20rpx;
+  background: #ffffff;
+  color: #ff6b6b;
+  border: 1rpx solid #ff6b6b;
+  border-radius: 44rpx;
+  font-size: 30rpx;
+}
+
+.delete-btn::after {
+  border: none;
+}

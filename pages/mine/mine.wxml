@@ -1,0 +1,66 @@
+<view class="container">
+  <!-- 未登录 -->
+  <view wx:if="{{!loggedIn}}" class="login-card">
+    <view class="login-icon">👤</view>
+    <view class="login-title">登录后管理你的心愿</view>
+    <button class="btn-primary login-btn" bindtap="onLogin">微信一键登录</button>
+  </view>
+
+  <!-- 已登录 -->
+  <view wx:else>
+    <view class="card profile-card">
+      <view class="avatar">{{user.email || '我'}}</view>
+      <view class="profile-info">
+        <text class="profile-name">微信用户</text>
+        <text class="profile-count">已发布 {{myWishes.length}} 个心愿</text>
+      </view>
+      <button class="logout-btn" bindtap="onLogout">退出</button>
+    </view>
+
+    <view class="section-title">我的心愿</view>
+
+    <view wx:if="{{loading}}" class="empty">
+      <text class="icon">⏳</text>
+    </view>
+
+    <view wx:elif="{{myWishes.length === 0}}" class="empty">
+      <text class="icon">🎁</text>
+      <text>还没有发布过心愿</text>
+      <button class="btn-primary go-publish" bindtap="onGoPublish">去发布</button>
+    </view>
+
+    <view wx:else>
+      <view
+        wx:for="{{myWishes}}"
+        wx:key="id"
+        class="card wish-card"
+        data-id="{{item.id}}"
+        bindtap="onWishTap"
+      >
+        <view class="wish-header">
+          <text class="wish-title">{{item.title}}</text>
+          <text class="wish-status {{item.status === 'open' ? 'open' : 'done'}}">
+            {{item.status === 'open' ? '待实现' : '已实现'}}
+          </text>
+        </view>
+        <view class="wish-footer">
+          <text wx:if="{{item.category}}" class="wish-tag">{{item.category}}</text>
+          <text wx:if="{{item.budget}}" class="wish-budget">¥{{item.budget}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 我的日记 -->
+    <view class="section-title diary-section-title">我的日记</view>
+    <view class="card diary-entry" bindtap="onDiaryTap">
+      <view class="diary-entry-left">
+        <text class="diary-entry-icon">📔</text>
+        <view class="diary-entry-info">
+          <text class="diary-entry-name">我的日记</text>
+          <text class="diary-entry-desc">记录每天的心情和故事</text>
+        </view>
+      </view>
+      <text class="diary-entry-arrow">›</text>
+    </view>
+  </view>
+</view>
